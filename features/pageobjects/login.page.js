@@ -21,14 +21,13 @@ class LoginPage extends Page {
         await expect(element.errorLockedOutUser(dynamicMessage)).toBeDisplayed()
     }
     async login (name) {
-        await this.fieldUsername.waitForDisplayed({ timeout: 2500 });
-        await this.fieldUsername.setValue(name);
-        await this.fieldPassword.setValue(process.env.PASSWORD_SAUCEDEMO);
-        await this.buttonLogin.click();
+        await element.fieldUsername.waitForDisplayed({ timeout: 2500 });
+        await element.fieldUsername.setValue(name);
+        await element.fieldPassword.setValue(process.env.PASSWORD_SAUCEDEMO);
+        await element.buttonLogin.click();
     }
     open () {
         return super.open('/'); // NOTE: will open https://www.saucedemo.com/
     }
 }
-
 module.exports = new LoginPage();
